@@ -42,7 +42,7 @@ class User(Base):
     	return user_id
 
 
-engine = create_engine('sqlite:///usersWithOAuth.db')
+engine = create_engine('sqlite:///usersWithOAuth.db?check_same_thread=False')
  
 
 Base.metadata.create_all(engine)

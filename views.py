@@ -4,7 +4,9 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
 from sqlalchemy import create_engine
 
-from flask.ext.httpauth import HTTPBasicAuth
+#from flask.ext.httpauth import HTTPBasicAuth  #replace with the following line
+from flask_httpauth import HTTPBasicAuth
+
 import json
 
 #NEW IMPORTS
@@ -17,7 +19,7 @@ import requests
 auth = HTTPBasicAuth()
 
 
-engine = create_engine('sqlite:///usersWithOAuth.db')
+engine = create_engine('sqlite:///usersWithOAuth.db?check_same_thread=False')
 
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
